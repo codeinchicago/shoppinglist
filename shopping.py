@@ -10,6 +10,8 @@ Build a shopping cart program with the following capabilities:
 """
 #TO DO: Two decimal precision for the total. {:2f}
 # Duplicate items, order apple, then banana, then apple.
+# Ensure valid input from user.
+# Adding up cost of items is wrong.
 
 #Two dictionaries, number of items, cost of items.
 
@@ -19,8 +21,11 @@ def orders():
     running = True
     total = 0
     order_dict = {}
+    numitems = {}
+
     while running == True:   
         entry = input("What would you like to order? May also 'delete', 'view', or 'quit'. ")
+        #If entry already found, add the cost of the item.
         if entry == "quit":
             print(order_dict)
             for item in order_dict.values():
@@ -28,26 +33,21 @@ def orders():
             #total = "{:2f}".format(total)
             print(f"Your total is {total}.")
             break
-        elif entry == "view":
-            print(order_dict)        
-
-
-# 2. Add, delete items and view current shopping list
         elif entry == "delete":
             remove = input("What would you like to delete? ")
             del order_dict[remove]
+        elif entry == "view":
+            print(order_dict)        
         elif entry not in order_dict.keys():
             cost = input("How much does it cost? ")
             order_dict[entry] = cost
-        # Add cost to duplicate dictionary
-        #if entry in order_dict.keys():
-        #    pass
+            numitems[entry] = 1
+        elif entry in order_dict.keys():
+            numitems[entry] += 1
+            print(numitems)
 
 
+        # 2. Add, delete items and view current shopping list
 
-# 3. Loop until quitting,
         
-
-# 4.  Print receipt upon quitting
-
 orders()
