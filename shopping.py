@@ -8,12 +8,14 @@ Build a shopping cart program with the following capabilities:
 5) The program Loops until user 'quits'
 6) Upon quiting the program, prints out a receipt of the items with total and quantity.
 """
-#TO DO: Two decimal precision for the total. {:2f}
-# Duplicate items, order apple, then banana, then apple.
-# Ensure valid input from user.
-# Adding up cost of items is wrong.
-
-#Two dictionaries, number of items, cost of items.
+#TO DO: X Two decimal precision for the total. {:2f}
+# X Duplicate items, order apple, then banana, then apple.
+# Ensure valid input from user, numbers only for price, anything fine for item.
+# X Adding up cost of items is wrong.
+# Receipt needs total and quantity.
+# Needed nicely formatted list of items ordered.
+# What if item to delete is not in items?
+# Duplicate items on receipt.
 
 # X 1. Get and store input
 
@@ -30,24 +32,21 @@ def orders():
             print(order_dict)
             for item in order_dict.values():
                 total += float(item)
-            #total = "{:2f}".format(total)
-            print(f"Your total is {total}.")
+            print(f'Your total is {total:.2f}.')
             break
         elif entry == "delete":
             remove = input("What would you like to delete? ")
             del order_dict[remove]
         elif entry == "view":
-            print(order_dict)        
+            print(order_dict)
+            for order, price in order_dict.items():
+                print(order, ': ', price)
         elif entry not in order_dict.keys():
             cost = input("How much does it cost? ")
             order_dict[entry] = cost
             numitems[entry] = 1
-        elif entry in order_dict.keys():
+        else:
             numitems[entry] += 1
-            print(numitems)
+            #print(numitems)       
 
-
-        # 2. Add, delete items and view current shopping list
-
-        
 orders()
