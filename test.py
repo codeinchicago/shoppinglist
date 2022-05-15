@@ -1,5 +1,7 @@
 #Formatting something with two decimal places.
 
-a = 3 + 2.8786
+import re
 
-print(f'My number is {a:.2f} - look at the nice rounding!')
+cost = "sadfafsdfsdasdf"
+
+print(re.search('[a-zA-Z]', cost))
