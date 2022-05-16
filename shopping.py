@@ -8,21 +8,8 @@ Build a shopping cart program with the following capabilities:
 5) The program Loops until user 'quits'
 6) Upon quiting the program, prints out a receipt of the items with total and quantity.
 """
-#TO DO: X Two decimal precision for the total. {:2f}
-# X Duplicate items, order apple, then banana, then apple.
-# X Ensure valid input from user, numbers only for price, anything fine for item.
-# X Adding up cost of items is wrong.
-# X Receipt needs total and quantity.
-# X Needed nicely formatted list of items ordered.
-# X What if item to delete is not in items?
-# X Duplicate items on receipt.
-# X Deal with different formatting of input by making it all lower case.
-# X Write with print(f "DSFSDFSF") formatting to fix spacing issues.
-
-# X 1. Get and store input
 
 def orders():
-    import re
     running = True
     total = 0
     order_dict = {}
@@ -38,7 +25,6 @@ def orders():
             for order, price in order_dict.items():
                 print(f"{numitems[order]} {order} at ${price} each, for a total of ${(float(numitems[order]) * float(price))}.")
                 total += (float(numitems[order]) * float(price))
-                #print("Total cost is: ", total)
             print(f'Your total is ${total:.2f}.')
             break
         elif entry == "delete":
@@ -57,4 +43,4 @@ def orders():
         else:
             numitems[entry] += 1     
 
-orders()
+#orders()
